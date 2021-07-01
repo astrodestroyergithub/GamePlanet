@@ -1,8 +1,6 @@
 <?php
-	
 
 session_start();
-
 
 $con = mysqli_connect('localhost', 'root', '');
 
@@ -22,17 +20,16 @@ $result = mysqli_query($con, $s);
 
 $num = mysqli_num_rows($result);
 
-if($num == 1){
-	echo "Username Already Taken";
-}else{
-	$reg = " insert into users (fname, lname, dob, gender, username, password, email) values ('$fname', '$lname', '$dob', '$gender' ,'$name', '$pass', '$email')";
-	mysqli_query($con, $reg);
-	$_SESSION['username'] = $name;
-	header('location:register3.php');
+if ($num == 1)
+{
+    echo "Username Already Taken";
+}
+else
+{
+    $reg = " insert into users (fname, lname, dob, gender, username, password, email) values ('$fname', '$lname', '$dob', '$gender' ,'$name', '$pass', '$email')";
+    mysqli_query($con, $reg);
+    $_SESSION['username'] = $name;
+    header('location:register3.php');
 }
 
 ?>
-
-
-
-
